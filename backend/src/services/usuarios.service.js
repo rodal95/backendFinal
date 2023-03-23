@@ -12,3 +12,7 @@ export const saveUser = async (body)=>{
     return await UserDaoContainer.save(body)
 }
 
+export const getUserByUserName = async (username)=>{
+    return await UserDaoContainer.findByUserName(username)
+}
+

@@ -44,6 +44,14 @@ class MongoContainer{
             console.log(err);
         }
     }
+    async findByUserName(username){
+        try {
+            const data = await this.model.find({mail:username})
+            return data
+        } catch (err) {
+            console.log(err)
+        }
+    }
 }
 
 

@@ -18,7 +18,7 @@ app.listen(PORT, ()=>{
 })
 /* conexion a base de datos */
 
-jwt.
+
 
 app.get("/",(req,res)=>{
     res.send("bienvenido al server")
