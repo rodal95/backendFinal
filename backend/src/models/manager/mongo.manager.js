@@ -36,7 +36,7 @@ class MongoContainer{
     }
     async deleteByUser(username){
         try{
-            await this.model.deleteOne({usuario:username})
+            await this.model.deleteOne({email:username})
             return {message:"el documento fue borrado"}
         }catch(err){
             console.log(err);

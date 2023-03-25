@@ -6,7 +6,6 @@ import { decodificarToken } from "../auth/jwt.js"
 export const getCartController = async (req,res)=>{
     try {
         const usuario = decodificarToken(req.headers.authorization)
-        console.log(usuario)
         const respuesta = await getCart(usuario.email)
         if(respuesta === null){
             res.status(200).json("no hay productos en el carrito, agregue uno para crear un carrito")
