@@ -1,16 +1,12 @@
-/* import {MongoContainer} from "./manager/mongo.manager.js"
-import {usuarioModel} from "./models/usuarios.model.js"
-
-const userManager = new MongoContainer(usuarioModel)
-export {userManager} */
-
+import {MongoClient} from "./client/dbClientMongo.js"
 
 import {usuarioModel} from "./dbmodels/usuarios.model.js"
-import {MongoClient} from "./client/dbClientMongo.js"
+import {productosModel} from "./dbmodels/productos.model.js"
+
 
 export async function getApiDao(dbType){
     let UserDaoContainer
-
+    let ProductDaoContainer
 
     switch(dbType){
         case 'MONGO':
@@ -19,6 +15,7 @@ export async function getApiDao(dbType){
             const client = new MongoClient()
             await client.connect()
             UserDaoContainer = new UserMongoDao(usuarioModel)
+            ProductDaoContainer = new ProductosMongoDao(productosModel)
             break;
         case 'MYSQL':
 
@@ -26,6 +23,6 @@ export async function getApiDao(dbType){
         default:
             break;
     }
-    return {UserDaoContainer}
+    return {UserDaoContainer, ProductDaoContainer}
 }
 

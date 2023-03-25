@@ -4,7 +4,7 @@ class MongoContainer{
     }
     async getById(id){
         try{
-            const data = await this.model.findById(id)
+            const data = await this.model.findById({_id:id})
             return data
         }catch(err){
             console.log(err);
@@ -28,8 +28,16 @@ class MongoContainer{
     }
     async deleteById(id){
         try{
-            const data = await this.model.findByIdAndDelete(id)
-            return data
+            await this.model.deleteOne({_id:id})
+            return {message:"el documento fue borrado"}
+        }catch(err){
+            console.log(err);
+        }
+    }
+    async deleteAll(){
+        try{
+            await this.model.deleteMany()
+            return {message:"todos los documentos fueron borrados"}
 
         }catch(err){
             console.log(err);
@@ -37,16 +45,16 @@ class MongoContainer{
     }
     async putById(id,modificacion){
         try{
-            const data = await this.model.findByIdAndUpdate(id,modificacion)
+            const data = await this.model.findByIdAndUpdate({_id:id},modificacion)
             const newData = await this.getById(id)
             return newData
         }catch(err){
             console.log(err);
         }
     }
-    async findByUserName(username){
+    async findUser(username){
         try {
-            const data = await this.model.find({mail:username})
+            const data = await this.model.findOne({email:username})
             return data
         } catch (err) {
             console.log(err)
