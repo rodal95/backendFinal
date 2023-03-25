@@ -1,4 +1,4 @@
-import {getProducts,saveProduct, deleteProductById,updateProductById} from "../services/productos.service.js"
+import {getProducts,saveProduct, deleteProductById,updateProductById, getProduct} from "../services/productos.service.js"
 
 import {decodificarToken} from "../auth/jwt.js"
 
@@ -9,7 +9,15 @@ export const getProductsController = async (req,res)=>{
     } catch (error) {
         res.status(400).json({message:`hubo un error${error}`})
     }
-
+}
+export const getProductController = async (req,res)=>{
+    try {
+        const idProduct = req.params.id
+        const respuesta = await getProduct(idProduct)
+        res.status(200).json({data:respuesta})
+    } catch (error) {
+        res.status(400).json({message:`hubo un error${error}`})
+    }
 }
 export const saveProductController = async (req,res)=>{
     try {

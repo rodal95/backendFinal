@@ -34,6 +34,14 @@ class MongoContainer{
             console.log(err);
         }
     }
+    async deleteByUser(username){
+        try{
+            await this.model.deleteOne({usuario:username})
+            return {message:"el documento fue borrado"}
+        }catch(err){
+            console.log(err);
+        }
+    }
     async deleteAll(){
         try{
             await this.model.deleteMany()
@@ -52,7 +60,7 @@ class MongoContainer{
             console.log(err);
         }
     }
-    async findUser(username){
+    async findByUser(username){
         try {
             const data = await this.model.findOne({email:username})
             return data
@@ -60,8 +68,13 @@ class MongoContainer{
             console.log(err)
         }
     }
+    async getAllByUser(username){
+        try {
+            const data = await this.model.find({email:username})
+            return data
+        } catch (err) {
+            console.log(err)
+        }
+    }
 }
-
-
-
 export {MongoContainer}

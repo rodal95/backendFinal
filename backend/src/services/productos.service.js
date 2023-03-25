@@ -6,7 +6,9 @@ const {ProductDaoContainer} = await getApiDao(options.server.dbType)
 export const getProducts = async ()=>{
     return await ProductDaoContainer.getAll()
 }
-
+export const getProduct = async (id)=>{
+    return await ProductDaoContainer.getById(id)
+}
 export const saveProduct = async (body)=>{
     return await ProductDaoContainer.save(body)
 }

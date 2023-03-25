@@ -14,7 +14,7 @@ export const saveUser = async (body)=>{
 }
 
 export const getUser = async (username)=>{
-    return await UserDaoContainer.findUser(username)
+    return await UserDaoContainer.find(username)
 }
 
 export const deleteUsers = async ()=>{

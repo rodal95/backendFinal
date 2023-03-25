@@ -11,7 +11,7 @@ export async function crearToken(data){
 export const validarTokenAdmin = (req,res,next)=>{
     const headerToken = req.headers.authorization
     if(!headerToken){
-        return res.send("no autorizado")
+        return res.send("autentiquese por favor")
     }
     const userToken = headerToken.split(" ")[1]
     console.log(userToken)
@@ -31,7 +31,7 @@ export const validarTokenAdmin = (req,res,next)=>{
 export const validarTokenUser = (req,res,next)=>{
     const headerToken = req.headers.authorization
     if(!headerToken){
-        return res.send("no autorizado")
+        return res.send("autentiquese por favor")
     }
     const userToken = headerToken.split(" ")[1]
     jwt.verify(userToken,"claveSecreta",(err,decode)=>{
