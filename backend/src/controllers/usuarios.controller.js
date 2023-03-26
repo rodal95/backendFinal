@@ -5,7 +5,6 @@ import { transporterEmail, emailAdmin } from "../messages/nodemailer.js"
 import bcrypt from "bcrypt"
 
 
-
 export const getUsersController = async (req,res)=>{
     try {
         const respuesta = await getUsers()

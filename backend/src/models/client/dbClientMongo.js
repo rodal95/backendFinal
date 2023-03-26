@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import {options} from "../../config/config.js"
 
-
 class MongoClient{
     constructor(){
         this.client = mongoose
