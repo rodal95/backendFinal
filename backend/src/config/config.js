@@ -18,7 +18,7 @@ const objArgs = ParsedArgs(process.argv.slice(2),{
 
 export const options = {
     server:{
-        PORT:objArgs.port,
+        PORT:process.env.PORT || 8080,
         MODE:objArgs.mode,
         NODE_ENV:objArgs.env,
         dbType:process.env.DATABASE_TYPE || 'MONGO'

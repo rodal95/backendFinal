@@ -13,7 +13,6 @@ app.listen(PORT, ()=>{
     console.log("server listening on port: ",PORT)
 })
 
-
 app.get("/",(req,res)=>{
     res.send("bienvenido al server")
 })
