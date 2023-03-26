@@ -1,7 +1,7 @@
 import { createTransport } from "nodemailer";
 
-const emailAdmin = "alday559@gmail.com"
-const passAdmin = "picihiwrjkijvatm"
+const emailAdmin = ""
+const passAdmin = ""
 
 const transporterEmail = createTransport({
     host:"smtp.gmail.com",
